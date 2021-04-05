@@ -1,0 +1,66 @@
+<form class="card" [formGroup]="form" (ngSubmit)="submitData()">
+    <div class="owner-name">
+        <h2>Данные пользователя</h2>
+        <div class="form-control">
+            <label>Фамилия</label>
+            <input type='text' formControlName='lName'>
+            <div class="validation">
+
+            </div>
+        </div>
+        <div class="form-control">
+            <label>Имя</label>
+            <input type='text' formControlName='fName'>
+            <div class="validation">
+                
+            </div>
+        </div>
+        <div class="form-control">
+            <label>Отчество</label>
+            <input type='text' formControlName='mName'>
+            <div class="validation">
+                
+            </div>
+        </div>
+    </div>
+    <div class="owner-cars">
+        <h2>Автомобили</h2>
+        <div class="auto-card" formArrayName="cars" *ngFor="let car of form.get('cars')['controls']; let i = index">
+            <div [formGroupName]="i">
+                <div class="form-control">
+                    <label>Номер</label>
+                    <input type='text' formControlName="plate">
+                    <div class="validation">
+                        
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label>Марка</label>
+                    <input type='text' formControlName="make">
+                    <div class="validation">
+                        
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label>Модель</label>
+                    <input type='text' formControlName="model">
+                    <div class="validation">
+                        
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label>Год</label>
+                    <input type='text' formControlName="year">
+                    <div class="validation">
+                        
+                    </div>
+                </div>
+                <button class="btn" type="button" (click)="removeAuto(i)">Удалить</button>
+            </div>
+        </div>
+        <button class="btn" type="button" (click)="addCar()">Добавить автомобиль</button>
+        <br>
+        <button class="btn" type="submit" [disabled]="form.invalid">Сохранить</button>
+        <a routerLink='' class="btn">Назад</a>
+    </div>
+</form>

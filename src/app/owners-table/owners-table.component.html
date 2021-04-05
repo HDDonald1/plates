@@ -1,0 +1,9 @@
+<button (click)="navigateToFormAdd()">Add</button> <button [disabled]='!currentInTable' (click)="navigateToForm()">Show</button> <button [disabled]='!currentInTable' (click)="navigateToForm()">Edit</button> <button [disabled]='!currentInTable' (click)='deleteOwner()'>delete</button>
+<table>
+    <tr><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Количество машин</th></tr>
+    <tr *ngFor='let owner of owners' (click)='setCurrent(owner.id)' [ngClass]="calculateActive(owner.id)">
+        <td>{{owner.lName}}</td> <td>{{owner.fName}}</td> <td>{{owner.mName}}</td> <td>{{owner.cars.length}}</td>
+    </tr>
+</table>
+    
+

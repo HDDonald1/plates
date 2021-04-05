@@ -1,0 +1,18 @@
+table{
+    border-collapse: collapse;
+    margin-top: 10px;
+    width: 750px;
+}
+td{
+    border: 1px solid black;
+}
+th{
+    border: 1px solid black;
+    font-weight: bold;
+}
+.row{
+    background: rgb(185, 181, 181);
+}
+.current{
+    background: rgb(68, 28, 245);
+}
